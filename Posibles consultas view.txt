@@ -1,0 +1,19 @@
+ SELECT  v.id, v.nombre,v.edad,v.identificacion, MAX (l.no_paginas),l.nombre 
+ count(*)  "cant_libros"
+	FROM public."autor" v JOIN public."libro" l ON 
+	v.id = l.id_autor
+	WHERE v.id = 1;
+
+
+ SELECT  v.id, v.nombre,v.edad,v.identificacion, MAX (l.no_paginas),l.nombre 
+ count(l.id) as "cant_libros",  v.id
+	FROM public."autor" v JOIN public."libro" l ON 
+	v.id = l.id_autor
+	WHERE v.id = 1;
+
+ SELECT  v.id, v.nombre,v.edad,v.identificacion, MAX (l.no_paginas) ,
+ count(l.id) as "cant_libros",  v.id
+	FROM public."autor" v JOIN public."libro" l ON 
+	v.id = l.id_autor
+	GROUP BY v.id 
+	;
